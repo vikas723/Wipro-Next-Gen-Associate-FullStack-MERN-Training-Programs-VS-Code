@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management | Spring High School</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- BOOTSTRAP CSS -->
+    <link 
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+      rel="stylesheet">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="app-wrapper">
+
+    <!-- HEADER -->
+    <header class="top-bar d-flex justify-content-between align-items-center">
+        <img src="images/logo.png" class="school-logo" alt="Spring High School Logo">
+
+        <nav class="menu">
+            <a href="#welcome">Home</a>
+            <a href="#profile">Student Profile</a>
+            <a href="#timetable">TimeTable</a> <!-- Added -->
+        </nav>
+    </header>
+
+    <!-- WELCOME CARD -->
+    <section class="welcome" id="welcome">
+        <div class="welcome-card">
+            <h1>Welcome to Spring High School</h1>
+            <p>Student’s Choice, Student’s Voice</p>
+        </div>
+    </section>
+
+    <!-- STUDENT PROFILE CARD -->
+    <section class="content-card" id="profile">
+        <div class="student-image-wrapper">
+            <img src="images/student.jpg" alt="Student Image">
+        </div>
+        <div class="student-details">
+            <h2>Student Information</h2>
+            <p><strong>Name:</strong> Rahul Sharma</p>
+            <p><strong>Class:</strong> 10th Standard</p>
+            <p><strong>Roll No:</strong> 25</p>
+            <p><strong>School:</strong> Spring High School</p>
+        </div>
+    </section>
+
+    <!-- TIMETABLE SECTION -->
+    <section class="timetable-section p-4" id="timetable">
+        <div class="container bg-white p-4 shadow-sm rounded">
+            <h2 class="text-center mb-4">My Time Table</h2>
+
+            <!-- Bootstrap Table -->
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Day</th>
+                            <th>9:00 AM - 10:00 AM</th>
+                            <th>10:15 AM - 11:15 AM</th>
+                            <th>11:30 AM - 12:30 PM</th>
+                            <th>1:30 PM - 2:30 PM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monday</td>
+                            <td>Maths</td>
+                            <td>Science</td>
+                            <td>English</td>
+                            <td>Art</td>
+                        </tr>
+                        <tr>
+                            <td>Tuesday</td>
+                            <td>History</td>
+                            <td>Geography</td>
+                            <td>Computer</td>
+                            <td>Sports</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>Maths</td>
+                            <td>Science</td>
+                            <td>English</td>
+                            <td>Music</td>
+                        </tr>
+                        <tr>
+                            <td>Thursday</td>
+                            <td>Social</td>
+                            <td>Computer</td>
+                            <td>History</td>
+                            <td>Art</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>Science</td>
+                            <td>Maths</td>
+                            <td>English</td>
+                            <td>Sports</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- BOOTSTRAP JS -->
+<script 
+ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>
