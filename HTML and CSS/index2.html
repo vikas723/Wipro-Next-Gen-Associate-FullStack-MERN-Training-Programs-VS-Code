@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LuxeAura | Premium Perfume Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+    <style>
+        /* ================= GLOBAL STYLES ================= */
+        body {
+            font-family: "Segoe UI", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* ================= NAVBAR ================= */
+        .navbar-brand img {
+            height: 45px;
+            margin-right: 10px;
+        }
+
+        .navbar {
+            background: linear-gradient(to right, #000, #1a1a1a);
+        }
+
+        .nav-link {
+            color: #fff !important;
+            margin-left: 15px;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: gold !important;
+        }
+
+        /* ================= HERO CAROUSEL ================= */
+        .carousel-img {
+            height: 85vh;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* ================= ABOUT ================= */
+        #about {
+            background: linear-gradient(to right, #fdfbfb, #ebedee);
+        }
+
+        .about-box {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* ================= PRODUCTS ================= */
+        #products {
+            background: #fafafa;
+        }
+
+        .product-card {
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* ================= CONTACT ================= */
+        #contact {
+            background: linear-gradient(to right, #232526, #414345);
+            color: white;
+        }
+
+        .contact-form {
+            max-width: 500px;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #000;
+            color: white;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 22px;
+            margin: 0 12px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: gold;
+        }
+
+        /* ================= MEDIA QUERIES ================= */
+        @media (max-width: 768px) {
+            .carousel-img {
+                height: 55vh;
+            }
+
+            section {
+                padding: 60px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center" href="#home">
+                <img
+                    src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"
+                    alt="Logo"
+                >
+                <span class="fw-bold">LuxeAura</span>
+            </a>
+
+            <button
+                class="navbar-toggler"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- ================= HOME / CAROUSEL ================= -->
+    <section id="home" class="p-0">
+        <div
+            id="perfumeCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+        >
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <img
+                        src="https://images.unsplash.com/photo-1585386959984-a41552231693"
+                        class="d-block w-100 carousel-img"
+                        alt="Luxury Perfume"
+                    >
+                    <div class="carousel-caption">
+                        <h2>Luxury Fragrances</h2>
+                        <p>Elegance in every drop</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1594035910387-fea47794261f"
+                        class="d-block w-100 carousel-img"
+                        alt="Premium Collection"
+                    >
+                    <div class="carousel-caption">
+                        <h2>Premium Collection</h2>
+                        <p>Timeless & unforgettable</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1526045478516-99145907023c"
+                        class="d-block w-100 carousel-img"
+                        alt="Exclusive Scents"
+                    >
+                    <div class="carousel-caption">
+                        <h2>Exclusive Scents</h2>
+                        <p>Designed for modern elegance</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about">
+        <div class="about-box">
+            <h2 class="mb-4">About LuxeAura</h2>
+            <p>
+                LuxeAura is a premium perfume brand delivering world-class fragrances
+                crafted for confidence, elegance, and individuality. Each scent tells
+                a story of luxury, passion, and refinement.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= PRODUCTS ================= -->
+    <section id="products">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Best Sellers</h2>
+
+            <div class="row g-4">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card product-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1615634260167-c8cdede054de"
+                            alt="Midnight Oud"
+                        >
+                        <div class="card-body text-center">
+                            <h5>Midnight Oud</h5>
+                            <p class="price">₹2,999</p>
+                            <button class="btn btn-dark w-100">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card product-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d"
+                            alt="Rose Elegance"
+                        >
+                        <div class="card-body text-center">
+                            <h5>Rose Elegance</h5>
+                            <p class="price">₹2,499</p>
+                            <button class="btn btn-dark w-100">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card product-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1541643600914-78b084683601"
+                            alt="Ocean Breeze"
+                        >
+                        <div class="card-body text-center">
+                            <h5>Ocean Breeze</h5>
+                            <p class="price">₹1,999</p>
+                            <button class="btn btn-dark w-100">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card product-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1616604500912-b76b6bdfbd5c"
+                            alt="Golden Amber"
+                        >
+                        <div class="card-body text-center">
+                            <h5>Golden Amber</h5>
+                            <p class="price">₹3,499</p>
+                            <button class="btn btn-dark w-100">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact">
+        <div class="container text-center">
+            <h2 class="mb-4">Contact Us</h2>
+
+            <form class="contact-form mx-auto">
+                <input
+                    type="text"
+                    class="form-control mb-3"
+                    placeholder="Your Name"
+                    required
+                >
+                <input
+                    type="email"
+                    class="form-control mb-3"
+                    placeholder="Email Address"
+                    required
+                >
+                <textarea
+                    class="form-control mb-3"
+                    rows="4"
+                    placeholder="Message"
+                ></textarea>
+                <button class="btn btn-warning w-100">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="text-center p-4">
+        <p>© 2026 LuxeAura Perfumes</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+</body>
+</html>
