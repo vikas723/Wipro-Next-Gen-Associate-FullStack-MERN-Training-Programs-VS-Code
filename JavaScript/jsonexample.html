@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Example</title>
+</head>
+<body>
+
+    <!-- Traditional Approach -->
+    <h2>Days</h2>
+    <ul>
+        <li>Sunday</li>
+        <li>Monday</li>
+        <li>Tuesday</li>
+        <li>Wednesday</li>
+        <li>Thursday</li>
+        <li>Friday</li>
+        <li>Saturday</li>
+    </ul>
+
+    <!-- Modern Approach -->
+    <h3>Product Data</h3>
+    <ul id="ProductList"></ul>
+
+    <script>
+        // Valid JSON (no trailing comma)
+        const jsonData = `[
+            {"Item": "Laptop", "price": "60000"},
+            {"Item": "Phone", "price": "20000"},
+            {"Item": "Ipad", "price": "30000"},
+            {"Item": "Headset", "price": "10000"}
+        ]`;
+
+        // Parse JSON
+        const productData = JSON.parse(jsonData);
+
+        // Correct ID
+        const list = document.getElementById("ProductList");
+
+        // Loop through array
+        productData.forEach(prod => {
+            const li = document.createElement("li");
+            li.textContent = `${prod.Item} - ₹${prod.price}`;
+            list.appendChild(li);
+        });
+    </script>
+
+</body>
+</html>

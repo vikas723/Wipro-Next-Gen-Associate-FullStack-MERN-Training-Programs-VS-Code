@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> A Java script program</h1>
+    <script>
+        alert("Hello JS"); // It's a built in function
+        console.log(3+5);
+        console.log("Hello World");
+    </script>
+    <script src = "app.js"></script> 
+    
+    <script>
+        var counter = 20; // var belongs  to global scope
+        function counter1()
+        {
+            var counter = 10; // prints error because it is defined inside the function
+        }
+        console.log(counter);
+    </script>
+
+    <script>
+        function counter()
+        {
+            let a = 40;
+        }
+        let a = 40; // let does not allow to redeclare inside the function. It is a block-scope but outside the function it allows
+        
+    </script>
+</body>
+</html>
