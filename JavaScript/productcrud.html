@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product CRUD Operations</title>
+    <style>
+        body { font-family: Arial; }
+    </style>
+</head>
+<body>
+
+<h3>Product Management Operations</h3>
+
+<button onclick="fetchProducts()">Fetch Products</button>
+<button onclick="addProduct()">Add Product</button>
+<button onclick="updateProduct()">Update Product</button>
+<button onclick="deleteProduct()">Delete Product</button>
+
+<ul id="products"></ul>
+
+<script>
+    // Initial product JSON data
+    let products = [
+        { id: 1, item: "Laptop", price: 60000 },
+        { id: 2, item: "Mouse", price: 500 },
+        { id: 3, item: "Keyboard", price: 700 },
+        { id: 4, item: "Speaker", price: 5000 }
+    ];
+
+    const ul = document.getElementById("products");
+
+    // GET – Fetch products
+    function fetchProducts() {
+        new Promise((resolve, reject) => {
+            if (products.length > 0) {
+                resolve(products);
+            } else {
+                reject("No products available");
+            }
+        })
+        .then(data => {
+            ul.innerHTML = "";
+            data.forEach(prod => {
+                const li = document.createElement("li");
+                li.textContent = `ID: ${prod.id} | Item: ${prod.item} | Price: ₹${prod.price}`;
+                ul.append(li);
+            });
+        })
+        .catch(err => console.error("Fetch Error:", err));
+    }
+
+    // POST – Add product
+    function addProduct() {
+        const newProduct = {
+            id: products.length + 1,
+            item: "Headphones",
+            price: 1500
+        };
+
+        new Promise((resolve, reject) => {
+            products.push(newProduct);
+            resolve("Product added");
+        })
+        .then(msg => {
+            alert(msg);
+            fetchProducts();
+        })
+        .catch(err => console.error("Add Error:", err));
+    }
+
+    // PUT – Update product
+    function updateProduct() {
+        const id = parseInt(prompt("Enter product ID to update"));
+
+        new Promise((resolve, reject) => {
+            const product = products.find(p => p.id === id);
+            if (!product) {
+                reject("Product not found");
+            } else {
+                product.item = "Updated Product";
+                product.price = 9999;
+                resolve("Product updated");
+            }
+        })
+        .then(msg => {
+            alert(msg);
+            fetchProducts();
+        })
+        .catch(err => console.error("Update Error:", err));
+    }
+
+    // DELETE – Delete product
+    function deleteProduct() {
+        const id = parseInt(prompt("Enter product ID to delete"));
+
+        new Promise((resolve, reject) => {
+            const index = products.findIndex(p => p.id === id);
+            if (index === -1) {
+                reject("Product not found");
+            } else {
+                products.splice(index, 1);
+                resolve("Product deleted");
+            }
+        })
+        .then(msg => {
+            alert(msg);
+            fetchProducts();
+        })
+        .catch(err => console.error("Delete Error:", err));
+    }
+</script>
+
+</body>
+</html>
