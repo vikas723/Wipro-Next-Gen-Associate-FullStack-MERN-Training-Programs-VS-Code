@@ -1,0 +1,54 @@
+React Vite Installation Commands:
+
+npm create vite@latest
+
+Need to install the following packages:
+create-vite@8.2.0
+Ok to proceed? (y) y
+
+> npx
+> create-vite
+
+│
+◇  Project name:
+│  my_website_react
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  JavaScript
+│
+◇  Use rolldown-vite (Experimental)?:
+│  No
+│
+◇  Install with npm and start now?
+│  Yes
+
+cd my_website_react
+
+npm run dev - to run the React Vite Server
+
+npm install - to install node modules 
+
+contro c - to stop the server
+
+Create-React-App Commands (Old Version):
+
+npx create-react-app my-app
+
+cd my-app - go to your project folder
+
+npm start - To start the React Server
+
+contro c - to stop the server
+
+Install Tailwind CSS:
+
+npm install tailwindcss @tailwindcss/vite
+
+Configure it in the vite.config.js - by adding tailwindcss() in plugin
+
+import tailwindcss from '@tailwindcss/vite' //import it in vite.config.js
+
+@import "tailwind.css"; to globally import the tailwind css in index.css
