@@ -27,19 +27,19 @@ function App() {
     
     </div>
     <h1> Welcome to Create-React-App </h1>
-    <BrowserRouter>
+    
         <Header></Header>
         
     <Menu></Menu>
    
-    <Routes>
-        <Route path="/about" element={<AboutUs/>}></Route>
-        <Route path="/contact" element={<ContactUs/>}></Route>
-        <Route path="/" element={<Home/>}></Route>
+    <Routes> {/*this block decides which page to show based on URL*/}
+        <Route path="/about" element={<AboutUs/>}></Route> {/*“When URL is about/, show About component.”*/}
+        <Route path="/contact" element={<ContactUs/>}></Route> {/*When URL is /contact, show ContactUs page.*/}
+        <Route path="/" element={<Home/>}></Route> {/*When URL is /, show Home page.*/}
         <Route path="*" element={<NoMatch/>}></Route>
     </Routes>
      <Footer/>
-     </BrowserRouter>
+     
      <FunctionDemo/>
      <ClassDemo/>
 </>
