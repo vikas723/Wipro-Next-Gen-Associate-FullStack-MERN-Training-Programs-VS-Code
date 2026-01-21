@@ -1,0 +1,114 @@
+
+## ✅ What `props` Actually Is
+
+**`props` stands for “properties”**.
+
+👉 `props` is **an object**
+👉 It is **used to pass data from one component to another**
+👉 It is **NOT a component**, **NOT a function**, **NOT JSX**
+
+---
+
+## ❌ What `props` Is NOT
+
+| ❌         | Explanation                   |
+| --------- | ----------------------------- |
+| Component | `props` does not return JSX   |
+| Function  | You don’t call `props()`      |
+| Hook      | It doesn’t start with `use`   |
+| State     | It cannot be changed by child |
+
+---
+
+## ✅ What `props` IS
+
+| ✅         | Explanation                 |
+| --------- | --------------------------- |
+| Object    | Holds data                  |
+| Read-only | Cannot be modified          |
+| Input     | Comes from parent component |
+
+---
+
+## 🔁 Simple Parent → Child Example
+
+### Parent Component (`App.jsx`)
+
+```jsx
+<Employee name="Vikas" role="Engineer" />
+```
+
+Here:
+
+* `name` and `role` are **props**
+* Values are passed to `Employee`
+
+---
+
+### Child Component (`Employee.jsx`)
+
+```jsx
+function Employee(props) {
+  return (
+    <div>
+      <p>Name: {props.name}</p>
+      <p>Role: {props.role}</p>
+    </div>
+  );
+}
+```
+
+Here:
+
+* `props` is an **object**
+* `props.name` → "Vikas"
+* `props.role` → "Engineer"
+
+---
+
+## 🧠 Visual Analogy (Very Easy)
+
+Think of a component like a **TV**:
+
+| Item           | React Meaning |
+| -------------- | ------------- |
+| TV             | Component     |
+| Remote control | Props         |
+| Buttons        | Data passed   |
+
+👉 The TV (component) works based on what the remote (props) sends.
+
+---
+
+## 🧪 One-Line Interview Answer
+
+> Props are read-only objects used to pass data from parent components to child components in React.
+
+---
+
+## ⚠️ Important Rule (Must Remember)
+
+> A component **receives** props — it does NOT create them.
+
+---
+
+## 🧩 Bonus: Props vs Component (Quick Table)
+
+| Feature        | Component   | Props |
+| -------------- | ----------- | ----- |
+| Returns JSX    | Yes         | No    |
+| Can hold state | Yes         | No    |
+| Can be reused  | Yes         | Yes   |
+| Mutable        | Yes (state) | No    |
+
+---
+
+## ✅ Final Summary
+
+✔ `props` is an object
+✔ Used to pass data
+✔ Not a component
+✔ Read-only
+✔ Comes from parent
+
+---
