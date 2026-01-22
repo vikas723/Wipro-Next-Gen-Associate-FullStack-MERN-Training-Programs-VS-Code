@@ -1,0 +1,46 @@
+import {useState} from "react"
+
+import React from 'react'
+function ControlledRegistrationForm() {
+    const[getName , setName] = useState("")
+    const[getEmail, setEmail] =useState("")
+    const handleSubmit =(e) =>
+    {
+        e.preventDefault();
+        alert(`Registration Form submitted : ${getName} , ${getEmail} `)
+    }
+  return (
+    <div>
+      <form onSubmit={handleSubmit}  >
+        <h2> User Registration Form</h2>
+        <input type="text" placeholder="Enter Name" value={getName} onChange={(e)=> setName(e.target.value)}/>
+        <input type= "email" placeholder="Enter email" value={getEmail} onChange={(e)=> setEmail(e.target.value)}/>
+        <button> Submit</button>
+      </form>
+    </div>
+  )
+}
+export default ControlledRegistrationForm
+import React from 'react'
+import {useRef} from "react"
+function UncontrolledRegistrationForm() {
+    const usernameRef = useRef();  // reference variable
+     const passwordRef = useRef();
+     const handleSubmit =(e) =>
+    {
+        e.preventDefault();
+        alert("Value :"+  usernameRef.current.value)
+    }
+  return (
+   <div>
+      <form >  
+        <h2> User Registration Form</h2>
+        <input ref={usernameRef} />
+        <input ref={passwordRef} />
+      
+        <button onClick= {handleSubmit}> Submit</button>
+      </form>
+    </div>
+  )
+}
+export default UncontrolledRegistrationForm

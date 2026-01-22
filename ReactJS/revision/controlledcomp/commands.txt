@@ -1,0 +1,2 @@
+npm install vite -plugin-simple-json-server --save-dev // To install JSON Server in vite
+
