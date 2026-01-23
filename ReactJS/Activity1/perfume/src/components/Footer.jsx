@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer
       id="contact"
-      className="bg-gradient-to-r from-purple-900 via-purple-800 to-indigo-900 text-slate-200 py-10 px-10"
+      className="bg-linear-to-r from-purple-900 via-purple-800 to-indigo-900 text-slate-200 py-10 px-10"
     >
       <div className="max-w-6l mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
 

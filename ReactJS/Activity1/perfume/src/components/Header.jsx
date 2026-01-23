@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header
       id="home"
-      className="pt-20 pb-10 px-10 bg-gradient-to-b from-purple-50 to-white"
+      className="pt-20 pb-10 px-10 bg-linear-to-b from-purple-50 to-white"
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center">
 
