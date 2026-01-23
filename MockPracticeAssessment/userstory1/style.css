@@ -1,0 +1,16 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+}
+
+h2 {
+    color: #2c3e50;
+}
+
+footer {
+    margin-top: 30px;
+}

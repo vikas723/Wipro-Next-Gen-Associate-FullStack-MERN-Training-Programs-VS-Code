@@ -1,0 +1,7 @@
+I have modified some changes in Tsc.config file
+
+so first compile tsc 
+
+Then run node CustomerModule.js 
+
+Then output will be rendered
