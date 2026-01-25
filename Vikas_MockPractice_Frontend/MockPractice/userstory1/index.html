@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Horizon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<header class="bg-dark text-white p-3">
+  <nav class="container d-flex justify-content-between">
+    <h3>Event Horizon</h3>
+    <ul class="nav">
+      <li class="nav-item"><a class="nav-link text-white" href="#events">Events</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="#register">Register</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container my-4">
+  <section id="events" class="mb-5">
+    <h2 class="mb-3">Upcoming Events</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://picsum.photos/300/200?1" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">Tech Conference</h5>
+            <p class="card-text">Latest trends in software development.</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://picsum.photos/300/200?2" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">Music Fest</h5>
+            <p class="card-text">Experience live performances.</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://picsum.photos/300/200?3" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">Startup Meetup</h5>
+            <p class="card-text">Network with entrepreneurs.</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="register">
+    <h2 class="mb-3">Event Registration</h2>
+    <form class="row g-3 needs-validation" novalidate>
+      <div class="col-md-6">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control" required />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" required />
+      </div>
+
+      <div class="col-12">
+        <button class="btn btn-success">Register</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer class="bg-dark text-white text-center p-3">
+  © 2026 Event Horizon
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="infoModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Event Details</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        Event details will be announced soon.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

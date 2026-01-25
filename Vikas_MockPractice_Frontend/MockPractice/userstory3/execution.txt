@@ -1,0 +1,7 @@
+I have made few modifications in tsconfig.json
+
+First run => tsconfig
+
+Then run => node CustomerModule.js
+
+Then output will be rendered
