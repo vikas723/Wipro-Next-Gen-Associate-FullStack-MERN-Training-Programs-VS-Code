@@ -1,0 +1,26 @@
+[
+{
+  "_id": 101,
+  "title": "Harry Potter",
+  "genre": "Fantasy",
+  "publicationYear": 1997,
+  "authorId": 1,
+  "ratings": []
+},
+{
+  "_id": 102,
+  "title": "Game of Thrones",
+  "genre": "Fantasy",
+  "publicationYear": 1996,
+  "authorId": 2,
+  "ratings": []
+},
+{
+  "_id": 103,
+  "title": "Foundation",
+  "genre": "Science Fiction",
+  "publicationYear": 1951,
+  "authorId": 3,
+  "ratings": []
+}
+]
