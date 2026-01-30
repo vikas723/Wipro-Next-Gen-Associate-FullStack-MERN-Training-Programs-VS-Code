@@ -187,7 +187,7 @@ After running the command, open your browser and go to:
 
 http://localhost:5173
 
-🗄 4. Start JSON Server (Mock Backend)
+# 🗄 4. Start JSON Server (Mock Backend)
 
 This project uses JSON Server to simulate a backend API.
 
