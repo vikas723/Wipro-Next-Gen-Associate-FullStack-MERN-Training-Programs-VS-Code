@@ -202,7 +202,7 @@ The API will be available at:
 
 http://localhost:3000/products
 
-# 🔐 5. Admin Login (If Applicable)
+# 🔐 5. Admin Login
 
 Use the credentials configured in the project for admin access.
 
@@ -211,7 +211,7 @@ Example:
 Email: admin@example.com
 Password: admin123
 
-🛠 Available Scripts
+## 🛠 Available Scripts
 npm run dev      # Start development server
 npm run build    # Build for production
 npm run preview  # Preview production build
