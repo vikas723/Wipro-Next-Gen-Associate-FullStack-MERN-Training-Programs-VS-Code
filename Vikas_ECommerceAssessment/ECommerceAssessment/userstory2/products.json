@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "Laptop", "category": "Electronics", "price": 800 },
+  { "id": 2, "name": "T-Shirt", "category": "Fashion", "price": 25 },
+  { "id": 3, "name": "Football", "category": "Sports", "price": 40 },
+  { "id": 4, "name": "Headphones", "category": "Electronics", "price": 120 },
+  { "id": 5, "name": "Perfume", "category": "Cosmetics", "price": 80},
+  { "id": 6, "name": "Gas Stove", "category": "Kitchen", "price": 150}
+]
