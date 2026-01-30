@@ -218,13 +218,15 @@ npm run preview  # Preview production build
 
 # 📂 Project Folder Structure Overview
 src/
+ ┣ admin/
  ┣ components/
+ ┣ context/
+ ┣ hoc/
  ┣ pages/
  ┣ services/
- ┣ hoc/
- ┣ context/
+ ┣ utils/
  ┣ validation/
- ┣ admin/
+ 
 
 # 🚨 Troubleshooting
 If node_modules error occurs:
