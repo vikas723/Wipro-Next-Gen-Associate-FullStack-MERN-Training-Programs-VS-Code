@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  <!-- it is fetch based implementation-->
+<h3> Users Data in JSON</h3>
+<ul id = "users"></ul>
+<script>
+
+  function fetchingUsers()
+  {
+    return new Promise((resolve,reject)=> // Manually creating a promise
+    {
+       fetch('https://jsonplaceholder.typicode.com/users') // to retrieve the json data from this api , Sends an HTTP request to the API , The API returns user data in JSON format, fetch() itself returns a Promise
+      .then(response =>  // It runs when the API responds
+      {
+        if(!response.ok){
+          reject("failed to fetch users") // If request fails Promise is rejected, Error message is sent to .catch()
+        }
+      
+      return response.json(); 
+    })
+      .then(data => resolve(data))
+      .catch(err => reject(err));
+        
+    });
+  }
+    
+
+
+      // it is promise based implementation-->
+
+  fetchingUsers()
+  .then(users =>{
+       const ul = document.getElementById("users");
+
+        users.forEach(user => {
+   
+   const li =  document.createElement("li");
+   li.textContent = `User Name : ${user.username} - EMail : ${user.email}`;
+   ul.append(li); 
+        });
+  })
+    .catch(err => console.error("Error :" ,err))
+
+
+  
+</script>
+</body>
+</html>

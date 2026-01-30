@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Functions</title>
+</head>
+<body>
+    <script>
+
+        //Traditional way for incrementing the salary
+        const salaries = [45000, 67000, 36000]; //salary in an array 
+
+        document.writeln(salaries[0]); //fetching salaries in oth location
+
+        const newsalaries = []; //creating new salary array
+        for(let i=0; i<salaries.length; i++)
+        {
+            newsalaries.push(salaries[i] + 1000) //existing salary incrementing
+
+        }
+        document.writeln("New Salary using traditional method :" + newsalaries);
+        
+        const highpaidemp = [];
+        for(let i=0; i<salaries.length; i++)
+        {
+            if(salaries[i] > 20000)
+            highpaidemp.push(salaries[i]);
+
+        }
+        document.writeln("Highly paid employees: " + highpaidemp);
+
+        let totsalary = 0;
+        for(let i=0; i<totsalary.length; i++)
+        {
+            totsalary += salaries[i];
+        }
+        document.writeln("Total salaries: " + totsalary);
+
+
+        // Pure Functions for same scenario
+
+        const salaries2 =  [45000, 60000, 75000];
+
+        //map
+        const mapsalaries  = salaries2.map(sal => sal + 1000) //sal is a variable adding 1000 to it and storing it in a new array
+        document.writeln("New salary is :" + mapsalaries);
+
+
+        //filter
+        const filtersalaries = salaries2.filter(sal => sal > 50000);
+        document.writeln("Filtered salay is : " + filtersalaries);
+        
+        //reduce
+        const totsalaries = salaries2.reduce((sum, sal) => sum + sal, 0);  //sum and sal are variables, 0 is current index number
+        // sum = 0 
+        // 0 + 45000 sum = 45000 
+        //45000 + 60000 = 105000 ; sum =105000
+        // 105000 + 75000 = 180000
+
+
+
+
+
+
+    </script>
+</body>
+</html>

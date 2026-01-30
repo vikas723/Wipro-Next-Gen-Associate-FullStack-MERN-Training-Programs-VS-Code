@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pure Functions</title>
+</head>
+<body>
+
+<script>
+    const items = [
+        { name: "Mobile", price: 15000 },
+        { name: "Headphones", price: 1800 },
+        { name: "Keyboard", price: 2500 },
+        { name: "Mouse", price: 900 },
+        { name: "Monitor", price: 12000 }
+    ];
+
+    // map 
+    const mapItems = items.map(item => ({
+        name: item.name,
+        price: item.price - (item.price * 0.10)
+    }));
+    document.writeln("Discounted Items : <br>");
+    document.writeln(JSON.stringify(mapItems) + "<br><br>");
+
+    // filter
+    const filterItems = mapItems.filter(item => item.price > 2000);
+    document.writeln("Items with price greater than 2000 : <br>");
+    document.writeln(JSON.stringify(filterItems) + "<br><br>");
+
+    // reduce
+    const totalPrice = filterItems.reduce(
+        (sum, item) => sum + item.price,0);
+    document.writeln("Total Price : " + totalPrice);
+
+    
+</script>
+
+</body>
+</html>
