@@ -1,0 +1,16 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "React Basics",
+      "author": "Dan Abramov",
+      "description": "Learn React from scratch"
+    },
+    {
+      "id": 2,
+      "title": "JavaScript Mastery",
+      "author": "Kyle Simpson",
+      "description": "Deep dive into JavaScript"
+    }
+  ]
+}
