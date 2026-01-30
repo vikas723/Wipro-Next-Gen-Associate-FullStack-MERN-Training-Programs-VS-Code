@@ -1,0 +1,246 @@
+mysql> create database day6;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use day6;
+Database changed
+mysql> CREATE TABLE Department (
+    ->     DeptID INT PRIMARY KEY,
+    ->     DeptName VARCHAR(50) NOT NULL UNIQUE,
+    ->     Location VARCHAR(50) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+/* Creating Tables */
+
+mysql> CREATE TABLE Employee (
+    ->     EmpID INT PRIMARY KEY,
+    ->     EmpName VARCHAR(100) NOT NULL,
+    ->     Gender CHAR(1),
+    ->     DOB DATE,
+    ->     HireDate DATE,
+    ->     DeptID INT,
+    ->     FOREIGN KEY (DeptID) REFERENCES Department(DeptID)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> CREATE TABLE Project (
+    ->     ProjectID INT PRIMARY KEY,
+    ->     ProjectName VARCHAR(100) NOT NULL,
+    ->     DeptID INT,
+    ->     StartDate DATE,
+    ->     EndDate DATE,
+    ->     FOREIGN KEY (DeptID) REFERENCES Department(DeptID)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> CREATE TABLE Performance (
+    ->     EmpID INT,
+    ->     ProjectID INT,
+    ->     Rating INT CHECK (Rating BETWEEN 1 AND 5),
+    ->     ReviewDate DATE,
+    ->     PRIMARY KEY (EmpID, ProjectID),
+    ->     FOREIGN KEY (EmpID) REFERENCES Employee(EmpID),
+    ->     FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID)
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> CREATE TABLE Reward (
+    ->     EmpID INT,
+    ->     RewardMonth DATE,
+    ->     RewardAmount DECIMAL(10,2),
+    ->     FOREIGN KEY (EmpID) REFERENCES Employee(EmpID)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+/* Creating Indexes */
+
+mysql> CREATE INDEX idx_emp_name ON Employee(EmpName);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> CREATE INDEX idx_emp_dept ON Employee(DeptID);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+/* USER STORY 2 — Insert and Manage Data (DML) */
+
+mysql> INSERT INTO Department VALUES
+    -> (101, 'IT', 'Bangalore'),
+    -> (102, 'HR', 'Delhi'),
+    -> (103, 'Finance', 'Mumbai'),
+    -> (104, 'Sales', 'Chennai'),
+    -> (105, 'Support', 'Pune');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO Employee VALUES
+    -> (1, 'Asha', 'F', '1990-07-12', '2018-06-10', 101),
+    -> (2, 'Raj', 'M', '1988-04-09', '2020-03-22', 102),
+    -> (3, 'Neha', 'F', '1995-01-15', '2021-08-05', 101),
+    -> (4, 'Karan', 'M', '1992-11-30', '2019-12-01', 103),
+    -> (5, 'Pooja', 'F', '1996-02-20', '2022-05-18', 104);
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+/* Update One Employee’s Department*/
+mysql> UPDATE Employee
+    -> SET DeptID = 103
+    -> WHERE EmpID = 2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+/* Delete Low Reward*/
+
+mysql> DELETE FROM Reward
+    -> WHERE RewardAmount < 1000;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from employee;
++-------+---------+--------+------------+------------+--------+
+| EmpID | EmpName | Gender | DOB        | HireDate   | DeptID |
++-------+---------+--------+------------+------------+--------+
+|     1 | Asha    | F      | 1990-07-12 | 2018-06-10 |    101 |
+|     2 | Raj     | M      | 1988-04-09 | 2020-03-22 |    103 |
+|     3 | Neha    | F      | 1995-01-15 | 2021-08-05 |    101 |
+|     4 | Karan   | M      | 1992-11-30 | 2019-12-01 |    103 |
+|     5 | Pooja   | F      | 1996-02-20 | 2022-05-18 |    104 |
++-------+---------+--------+------------+------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from department;
++--------+----------+-----------+
+| DeptID | DeptName | Location  |
++--------+----------+-----------+
+|    101 | IT       | Bangalore |
+|    102 | HR       | Delhi     |
+|    103 | Finance  | Mumbai    |
+|    104 | Sales    | Chennai   |
+|    105 | Support  | Pune      |
++--------+----------+-----------+
+5 rows in set (0.00 sec)
+
+/* USER STORY 3 — Generate Insights (DQL) */
+
+/* Employees Joined After 2019 */
+
+mysql> SELECT * FROM Employee
+    -> WHERE HireDate > '2019-01-01';
++-------+---------+--------+------------+------------+--------+
+| EmpID | EmpName | Gender | DOB        | HireDate   | DeptID |
++-------+---------+--------+------------+------------+--------+
+|     2 | Raj     | M      | 1988-04-09 | 2020-03-22 |    103 |
+|     3 | Neha    | F      | 1995-01-15 | 2021-08-05 |    101 |
+|     4 | Karan   | M      | 1992-11-30 | 2019-12-01 |    103 |
+|     5 | Pooja   | F      | 1996-02-20 | 2022-05-18 |    104 |
++-------+---------+--------+------------+------------+--------+
+4 rows in set (0.00 sec)
+
+/*Average Rating Per Department*/
+
+mysql> SELECT d.DeptName, AVG(p.Rating) AS AvgRating
+    -> FROM Department d
+    -> JOIN Employee e ON d.DeptID = e.DeptID
+    -> JOIN Performance p ON e.EmpID = p.EmpID
+    -> GROUP BY d.DeptName;
+Empty set (0.00 sec)
+
+/* Employee Age */
+
+mysql> SELECT EmpName,
+    -> TIMESTAMPDIFF(YEAR, DOB, CURDATE()) AS Age
+    -> FROM Employee;
++---------+------+
+| EmpName | Age  |
++---------+------+
+| Asha    |   35 |
+| Raj     |   37 |
+| Neha    |   31 |
+| Karan   |   33 |
+| Pooja   |   29 |
++---------+------+
+5 rows in set (0.00 sec)
+
+/* Total Rewards This Year*/
+mysql> SELECT SUM(RewardAmount) AS TotalRewards
+    -> FROM Reward
+    -> WHERE YEAR(RewardMonth) = YEAR(CURDATE());
++--------------+
+| TotalRewards |
++--------------+
+|         NULL |
++--------------+
+1 row in set (0.00 sec)
+
+/*Rewards Greater Than 2000*/
+
+mysql> SELECT DISTINCT e.EmpName
+    -> FROM Employee e
+    -> JOIN Reward r ON e.EmpID = r.EmpID
+    -> WHERE r.RewardAmount > 2000;
+Empty set (0.00 sec)
+
+/* USER STORY 4 — Joins & Subqueries*/
+/*Employee + Department + Project + Rating*/
+
+mysql> SELECT e.EmpName, d.DeptName, pr.ProjectName, pf.Rating
+    -> FROM Employee e
+    -> JOIN Department d ON e.DeptID = d.DeptID
+    -> JOIN Performance pf ON e.EmpID = pf.EmpID
+    -> JOIN Project pr ON pf.ProjectID = pr.ProjectID;
+Empty set (0.00 sec)
+
+/* Highest Rated Employee Per Department*/
+
+mysql> SELECT EmpName, DeptID
+    -> FROM Employee e
+    -> WHERE EmpID IN (
+    ->     SELECT EmpID
+    ->     FROM Performance
+    ->     WHERE Rating = (
+    ->         SELECT MAX(Rating) FROM Performance
+    ->     )
+    -> );
+Empty set (0.00 sec)
+
+/* Employees Without Rewards*/
+mysql> SELECT EmpName
+    -> FROM Employee
+    -> WHERE EmpID NOT IN (
+    ->     SELECT EmpID FROM Reward
+    -> );
++---------+
+| EmpName |
++---------+
+| Asha    |
+| Karan   |
+| Neha    |
+| Pooja   |
+| Raj     |
++---------+
+5 rows in set (0.00 sec)
+
+/* USER STORY 5 — Transactions & Optimization */
+/* Transaction Control */
+
+mysql> START TRANSACTION;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+mysql> INSERT INTO Employee VALUES
+    -> (6, 'Rohit', 'M', '1994-09-12', '2023-01-10', 101);
+Query OK, 1 row affected (0.01 sec)
+
+mysql>
+mysql> INSERT INTO Performance VALUES
+    -> (6, 201, 4, CURDATE());
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`day6`.`performance`, CONSTRAINT `performance_ibfk_2` FOREIGN KEY (`ProjectID`) REFERENCES `project` (`ProjectID`))
+mysql>
+mysql> COMMIT;
+Query OK, 0 rows affected (0.00 sec)
+
+/* Query Optimization (EXPLAIN) */
+mysql> EXPLAIN
+    -> SELECT e.EmpName, d.DeptName, p.ProjectName
+    -> FROM Employee e
+    -> JOIN Department d ON e.DeptID = d.DeptID
+    -> JOIN Project p ON d.DeptID = p.DeptID;
