@@ -1,0 +1,5 @@
+[
+{ "_id": 201, "name": "Vikas", "email": "vikas@gmail.com", "joinDate": {"$date":"2025-01-01"} },
+{ "_id": 202, "name": "Rahul", "email": "rahul@gmail.com", "joinDate": {"$date":"2024-12-10"} },
+{ "_id": 203, "name": "Priya", "email": "priya@gmail.com", "joinDate": {"$date":"2024-11-15"} }
+]
