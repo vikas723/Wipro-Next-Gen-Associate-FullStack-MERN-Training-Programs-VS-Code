@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Activity Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Student Activity Tracker</h1>
+</header>
+
+<main>
+
+    <!-- LOGIN PAGE -->
+    <section id="loginPage" class="card">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="errorMsg"></p>
+    </section>
+
+    <!-- WELCOME PAGE -->
+    <section id="welcomePage" class="card hidden">
+        <h2>Welcome, <span id="studentName"></span></h2>
+        <button onclick="showMonthlyPage()">Monthly Chart</button>
+        <button class="logout" onclick="logout()">Logout</button>
+    </section>
+
+    <!-- MONTHLY ACTIVITY PAGE -->
+    <section id="monthlyPage" class="card hidden">
+        <h2>Monthly Activities</h2>
+
+        <select id="subjectFilter" onchange="filterActivities()">
+            <option value="All">All Subjects</option>
+            <option value="Maths">Maths</option>
+            <option value="Science">Science</option>
+            <option value="Computer">Computer</option>
+        </select>
+
+        <div id="activityList"></div>
+
+        <button class="back" onclick="goBack()">Back</button>
+    </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

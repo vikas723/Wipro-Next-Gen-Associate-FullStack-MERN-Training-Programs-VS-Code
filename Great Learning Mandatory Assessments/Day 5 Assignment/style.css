@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #333;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.2rem;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card h2 {
+    margin-bottom: 1rem;
+    color: #4a47a3;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.post {
+    padding: 1rem;
+    border-left: 5px solid #667eea;
+    background: #f8f9ff;
+    border-radius: 8px;
+}
+
+.post strong {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.todo {
+    padding: 0.8rem;
+    border-radius: 6px;
+    background: #f1f1f1;
+}
+
+.todo.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.error {
+    margin-top: 1rem;
+    color: red;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+}
