@@ -1,0 +1,100 @@
+
+The **main difference** is **whether Node.js waits or not** while reading the file.
+
+---
+
+# 1. Synchronous Code (`readFileSync`)
+
+### Behavior
+
+* Node **WAITS** until file reading is finished.
+* Other lines of code **do not run** meanwhile.
+* Called **Blocking Code**.
+
+### Example Flow
+
+```javascript
+console.log("Start");
+fs.readFileSync("bigfile.txt");
+console.log("End");
+```
+
+### Output Order
+
+```
+Start
+(File reads...)
+End
+```
+
+### What Happens Internally
+
+1. Program starts
+2. Hits `readFileSync`
+3. Execution **stops**
+4. File finishes reading
+5. Program continues
+
+---
+
+# 2. Asynchronous Code (`readFile`)
+
+### Behavior
+
+* Node **DOES NOT WAIT**.
+* File reads in **background**.
+* Other lines run immediately.
+* Called **Non-Blocking Code**.
+
+### Example Flow
+
+```javascript
+console.log("Start");
+fs.readFile("bigfile.txt", () => {});
+console.log("End");
+```
+
+### Output Order
+
+```
+Start
+End
+(File reads...)
+```
+
+### What Happens Internally
+
+1. Program starts
+2. Sends file task to background
+3. Continues executing next lines
+4. When file completes → callback runs
+
+---
+
+# Core Difference Table
+
+| Feature   | Synchronous            | Asynchronous             |
+| --------- | ---------------------- | ------------------------ |
+| Waiting   | Yes                    | No                       |
+| Execution | Stops                  | Continues                |
+| Speed     | Slower for big files   | Faster & scalable        |
+| Use Case  | Small scripts, testing | Servers, APIs, real apps |
+| Blocking  | Yes                    | No                       |
+
+---
+
+# Simple Real-Life Analogy
+
+**Synchronous:**
+You stand at a printer and wait until printing finishes before doing anything else.
+
+**Asynchronous:**
+You click print and go do other work while the printer prints.
+
+---
+
+# Important Interview Line
+
+> **Synchronous blocks the event loop, Asynchronous does not block the event loop.**
+
+For real applications and servers, **Async is preferred** because Node.js is designed to be **non-blocking and scalable**.

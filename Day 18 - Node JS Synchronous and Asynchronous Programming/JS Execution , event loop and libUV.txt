@@ -1,0 +1,181 @@
+
+
+# 1. JavaScript Execution in Node.js
+
+In browsers, JavaScript runs inside Chrome/Firefox engines.
+In **Node.js**, JavaScript runs using **Google Chrome’s V8 Engine**.
+
+### Important Points
+
+* JavaScript is **Single-Threaded**
+* It executes **one line at a time**
+* But Node.js can still handle **many users simultaneously**
+
+**How?** → Because of **Event Loop + libuv**
+
+---
+
+# 2. What is **libuv**?
+
+**libuv** is a **C library** inside Node.js that handles:
+
+* File system operations
+* Network requests
+* Timers (`setTimeout`)
+* Asynchronous tasks
+* Thread pool management
+
+### Simple Meaning
+
+JavaScript itself cannot do background work.
+**libuv does the background work for Node.js.**
+
+Think of **libuv as a Worker Team** behind the scenes.
+
+---
+
+# 3. What is Event Loop?
+
+The **Event Loop** is like a **manager**.
+
+Its job:
+
+* Check if JavaScript stack is free
+* Take completed tasks from background
+* Execute their callbacks
+
+### Simple Analogy
+
+* **JavaScript Thread** → One cashier
+* **libuv** → Workers in kitchen
+* **Event Loop** → Manager calling next order
+
+---
+
+# How They Work Together
+
+1. JS code starts
+2. Heavy task (file read, API call) comes
+3. Task goes to **libuv background**
+4. JS continues running other code
+5. When task finishes → Event Loop pushes callback
+6. Callback executes
+
+---
+
+# Easy Example Code
+
+```javascript
+const fs = require("fs");
+
+console.log("Start");
+
+fs.readFile("bigfile.txt", "utf8", (err, data) => {
+  console.log("File Completed");
+});
+
+console.log("End");
+```
+
+---
+
+## Execution Order
+
+### Output
+
+```
+Start
+End
+File Completed
+```
+
+---
+
+## What Happens Internally
+
+### Step-by-Step
+
+**1. `console.log("Start")`**
+
+* Runs immediately
+
+**2. `fs.readFile`**
+
+* Sent to **libuv**
+* Background thread starts reading file
+
+**3. `console.log("End")`**
+
+* Runs immediately (no waiting)
+
+**4. File finishes**
+
+* libuv tells Event Loop
+
+**5. Event Loop**
+
+* Pushes callback → `"File Completed"`
+
+---
+
+# Visual Flow (Easy)
+
+```
+JS Thread → libuv → Event Loop → JS Thread
+```
+
+or
+
+```
+Code → Background → Completed → Callback
+```
+
+---
+
+# Why Node.js is Fast
+
+Because:
+
+* It **does not block**
+* Uses **Non-Blocking I/O**
+* Event Loop handles many tasks efficiently
+
+---
+
+# Blocking vs Non-Blocking
+
+## Blocking (Bad for Servers)
+
+```javascript
+fs.readFileSync("file.txt");
+```
+
+JS waits → everything stops.
+
+## Non-Blocking (Good)
+
+```javascript
+fs.readFile("file.txt", callback);
+```
+
+JS continues → better performance.
+
+---
+
+# One Line Interview Answer
+
+**Node.js uses a single JavaScript thread with libuv and an event loop to perform non-blocking asynchronous operations efficiently.**
+
+---
+
+# Simple Real-Life Example
+
+Ordering Food 🍔
+
+**Blocking:**
+You stand at counter until food is ready.
+
+**Non-Blocking:**
+You order food, sit down, and waiter calls you later.
+
+Node.js always prefers **Non-Blocking**.
