@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Node Backend UI</h2>
+
+<button onclick="health()">Health Check</button>
+<button onclick="login()">Login User</button>
+<button onclick="viewUsers()">View Users</button>
+
+<pre id="result"></pre>
+
+<script>
+function health() {
+  fetch("/health")
+    .then(r => r.text())
+    .then(d => result.innerText = d);
+}
+
+function login() {
+  fetch("/login")
+    .then(r => r.text())
+    .then(d => result.innerText = d);
+}
+
+function viewUsers() {
+  fetch("/users")
+    .then(r => r.json())
+    .then(d => result.innerText = JSON.stringify(d, null, 2));
+}
+</script>
+</body>
+</html>
