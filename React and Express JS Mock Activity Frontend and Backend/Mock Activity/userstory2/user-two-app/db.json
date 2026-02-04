@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Mobile",
+      "price": 20000,
+      "Category": "Electronics"
+    },
+    {
+      "id": 2,
+      "name": "Washing Machine",
+      "price": 40000,
+      "Category": "Home Appliances"
+    },
+    {
+      "id":3,
+      "name": "Sofa",
+      "price": 30000,
+      "Category":"Furniture"
+
+    }
+  ]
+  
+}
