@@ -1,0 +1,62 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id = "msg">
+    <button onclick="announce()">BroadCast</button>
+    <form action="/upload?role= admin" method = "POST" enctype="multipart/form-data"></form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+</head>
+
+<body>
+  <h2>Admin Broadcast Panel</h2>
+
+  <!-- Message Input -->
+  <input id="msg" type="text" placeholder="Type announcement here" />
+  <button onclick="announce()">Broadcast</button>
+
+  <br><br>
+
+  <!-- File Upload -->
+  <form action="/upload?role=admin" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <button type="submit">Upload File</button>
+  </form>
+
+  <!-- Socket.io Script -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script>
+    // connect to socket
+    const socket = io();
+
+    // check connection
+    socket.on("connect", () => {
+      console.log("Connected to server:", socket.id);
+    });
+
+    // send announcement
+    function announce() {
+      const text = document.getElementById("msg").value;
+
+      if (text.trim() === "") {
+        alert("Enter a message first");
+        return;
+      }
+
+      socket.emit("announcement", text);
+      document.getElementById("msg").value = "";
+    }
+  </script>
+</body>
+</html>
