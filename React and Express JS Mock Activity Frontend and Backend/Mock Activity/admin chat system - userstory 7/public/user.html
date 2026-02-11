@@ -1,0 +1,59 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>User Panel</h2>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+const socket = io();
+
+socket.on("announcement", msg=>{
+  alert("Admin: "+msg);
+});
+
+socket.on("chat", msg=>{
+  alert(msg);
+});
+</script>
+
+    
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Panel</title>
+</head>
+<body>
+
+<h2>User Panel</h2>
+
+<div id="messages"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  socket.on("connect", () => {
+    console.log("Connected:", socket.id);
+  });
+
+  socket.on("announcement", msg => {
+    console.log("Received:", msg);
+
+    const div = document.getElementById("messages");
+    const p = document.createElement("p");
+    p.innerText = "Admin: " + msg;
+    div.appendChild(p);
+  });
+</script>
+
+
+</body>
+</html>
