@@ -1,8 +1,0 @@
-Steps to execute the user story 3 : 
-
-I have made some modifications in tsconfig.js
-
-1) First compile ts
-2) Then run "node productManager.js"
-
-Output will be displayed in terminal
