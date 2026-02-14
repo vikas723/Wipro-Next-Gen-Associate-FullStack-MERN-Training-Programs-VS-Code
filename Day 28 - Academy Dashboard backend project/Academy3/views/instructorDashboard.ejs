@@ -1,0 +1,8 @@
+<h2>Instructor Dashboard</h2>
+<ul>
+  <% courses.forEach(c => { %>
+    <li><%= c.title %></li>
+    <li><%=c.fee%></li>
+  <% }) %>
+</ul>
+<a href="/logout">Logout</a>

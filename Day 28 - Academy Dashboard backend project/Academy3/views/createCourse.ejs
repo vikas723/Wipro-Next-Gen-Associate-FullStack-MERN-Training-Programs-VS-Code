@@ -1,0 +1,10 @@
+<form method="post">
+  <input name="title" placeholder="Title" />
+  <input name="fee" />
+  <select name="InstructorId">
+    <% instructors.forEach(i => { %>
+      <option value="<%= i.id %>"><%= i.name %></option>
+    <% }) %>
+  </select>
+  <button>Create</button>
+</form>

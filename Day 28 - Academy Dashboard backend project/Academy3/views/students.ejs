@@ -1,0 +1,6 @@
+<h2>Students</h2>
+<% students.forEach(s => { %>
+  <p><%= s.name %> - <%= s.email %></p>
+<% }) %>
+<a href="/students?page=<%= page - 1 %>">Prev</a>
+<a href="/students?page=<%= page+1 %>">Next</a>
