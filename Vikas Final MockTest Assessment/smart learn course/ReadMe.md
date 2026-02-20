@@ -1,6 +1,6 @@
 Project Setup Instructions:
 
-1) Ihave deleted Node modules for both frontend and backend
+1) I have deleted Node modules for both frontend and backend
 
 2) Unzip my project folder and install the node modules for both frontend and backend
 
@@ -56,3 +56,4 @@ GET - /api/courses to fetch the course details
 
 
 POST - /api/enroll to enroll in the course and it displays the success message 
+
