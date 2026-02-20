@@ -34,7 +34,7 @@ Backend run Instructions:
 
 9) Referech the mongodb databse to see the results
 
-10) To test the enrollemnt give the command npm test and all the test cases will be passed
+10) To test the enrollement give the command npm test and all the test cases will be passed
 
 Frontend run instructions: 
 
@@ -53,5 +53,6 @@ API Endpoints:
 POST - /api/courses to post all the courses
 
 GET - /api/courses to fetch the course details
+
 
 POST - /api/enroll to enroll in the course and it displays the success message 
